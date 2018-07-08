@@ -1,22 +1,23 @@
 require "byebug"
-require_relative "board"
+require_relative 'board'
+
 class HumanPlayer
-  attr_reader :name, :board
-  attr_accessor :mark
+  attr_reader :name
+  attr_accessor :mark, :board
 
   def initialize(name)
     @name = name
   end
 
-  def get_move
+  def get_move(board)
     puts "Your mark is X! Where do you want to move? (row, col)"
     # move = gets.chomp.split(",").map(&:to_i)
     move = gets.chomp.delete("()").split(",").map(&:to_i)
     # debugger
-    valid_move?(move) ? move : "invalid move -- format (row, col)"
+    valid_move?(move, board) ? move : "invalid move -- format (row, col)"
   end
 
-  def valid_move?(move)
+  def valid_move?(move, board)
     # debugger
     if board[move] == nil
       return true

@@ -9,7 +9,7 @@ class ComputerPlayer
     @board = board
   end
 
-  def get_move
+  def get_move(board)
     moves = []
     (0..2).each do |row|
       (0..2).each do |col|

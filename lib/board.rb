@@ -1,3 +1,6 @@
+# making valid moves on get_move passing in a board to check if what is there is nil
+# if it is, then its valid
+# next we need to come up with defensive moves 
 class Board
   attr_reader :grid, :marks
 
