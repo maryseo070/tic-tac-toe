@@ -9,7 +9,7 @@ class Game
     @player1, @player2 = player1, player2
     player1.mark = :X
     player2.mark = :O
-    @current_player = player1
+    @current_player = player2
     @board = Board.new
   end
 
@@ -24,7 +24,7 @@ class Game
       game_winner.display(board)
       puts "#{game_winner.name} wins!"
     else
-      puts "Cat's game"
+      puts "No winner :("
     end
   end
 

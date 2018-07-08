@@ -18,8 +18,10 @@ class ComputerPlayer
       end
     end
     moves.each do |move|
+      # debugger
     return move if win?(move)
-    # return move if defense(move)
+    return move if defense?(move)
+    return move if move == [1, 1]
   end
 
   moves.sample
@@ -28,6 +30,7 @@ class ComputerPlayer
   def win?(move)
     board[move] = mark
     if board.winner == mark
+      # debugger
       board[move] = nil
       true
     else
@@ -36,9 +39,10 @@ class ComputerPlayer
     end
   end
 
-  def defense(move)
-    board[move] = mark
-    if board.winner != mark
+  def defense?(move)
+    board[move] = :X
+    if board.winner == :X
+      # debugger
       board[move] = nil
       return true
     else
