@@ -14,11 +14,23 @@ class HumanPlayer
     # move = gets.chomp.split(",").map(&:to_i)
     move = gets.chomp.delete("()").split(",").map(&:to_i)
     # debugger
-    valid_move?(move, board) ? move : "invalid move -- format (row, col)"
+    if valid_move?(move, board)
+      return move
+    else
+      # debugger
+      begin
+        raise "error -- that spot is taken"
+      #   raise ArgumentError.new("error")
+      rescue
+      #   puts e.message
+      puts "That spot is taken, try again -- Where do you want to move? (row, col)"
+      # move = gets.chomp.split(",").map(&:to_i)
+      move = gets.chomp.delete("()").split(",").map(&:to_i)
+      end
+    end
   end
 
   def valid_move?(move, board)
-    # debugger
     if board[move] == nil
       return true
     else
